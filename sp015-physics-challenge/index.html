@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#091a31">
+<meta name="description" content="SP015 Chapter 2 Physics Challenge: five quick questions on projectile motion, graphs and resolving vectors.">
+<title>Physics Challenge Zone · SP015</title>
+<style>
+:root{--night:#091a31;--mid:#122841;--sky:#6ce6ed;--blue:#1765d8;--mint:#b7f4dd;--cream:#fff4de;--ink:#112339;--muted:#52637a;--line:#e0e7ee;--gold:#ffc869;--good:#087d5c;--bad:#c04b53}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#091a31 0,#0e2746 365px,#ecf3f8 366px,#f5f8fb 100%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);min-height:100svh;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #e4ac33;outline-offset:3px}
+.screen-reader{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.wrap{max-width:760px;margin:0 auto;padding:0 19px 38px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:26px 0 17px;color:#fff}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.025em;font-size:15px}.brand-logo{width:37px;height:37px;border-radius:13px;background:#76e4e9;color:#062136;display:grid;place-items:center;font-size:20px;font-weight:950;box-shadow:0 6px 22px #0004}.smallmark{font-size:11px;font-weight:800;letter-spacing:.13em;border:1px solid #9ec6ed57;padding:7px 10px;border-radius:50px;color:#d6edfb}
+.hero{background:radial-gradient(circle at 84% 25%,#184a67 0,transparent 37%),linear-gradient(145deg,#132c4a,#0e213c);border:1px solid #46617b75;border-radius:26px;color:#fff;overflow:hidden;position:relative;box-shadow:0 18px 50px #061b2e40}
+.hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:4px;align-items:center;padding:29px 30px 24px}.eyebrow{display:inline-flex;align-items:center;gap:7px;text-transform:uppercase;color:#7fe6e9;letter-spacing:.14em;font-weight:850;font-size:11px}
+h1{font-size:clamp(36px,6vw,57px);line-height:1.04;letter-spacing:-.055em;margin:13px 0 13px;max-width:430px;font-weight:900}.hero p{font-size:15px;line-height:1.5;color:#c5dbed;margin:0;max-width:355px}.hero-art{width:100%;max-width:300px;justify-self:center;filter:drop-shadow(0 18px 25px #0005)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#31516c65;border-top:1px solid #4567817d}.stats>div{background:#0d25408f;padding:14px;text-align:center}.stats strong{display:block;color:#fff;font-size:22px;letter-spacing:-.04em}.stats span{display:block;color:#acc7d9;font-size:11px;margin-top:2px}
+.panel{background:white;border:1px solid #e7edf4;border-radius:24px;box-shadow:0 10px 28px #1b365314;padding:28px;margin-top:19px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.section-label{color:#237785;font-size:12px;letter-spacing:.12em;font-weight:900;text-transform:uppercase}.panel h2{font-size:26px;letter-spacing:-.04em;line-height:1.15;margin:11px 0 13px;font-weight:880}.panel p{color:#607087;line-height:1.56;font-size:14px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0 20px}.tag{font-weight:750;font-size:12px;border-radius:30px;padding:9px 12px;background:#edf7f7;color:#136b70}.tag:nth-child(2){background:#eff2fc;color:#315bb0}.tag:nth-child(3){background:#fff2e1;color:#965a12}
+.cta{width:100%;min-height:56px;border:0;background:#0b6bcb;color:white;border-radius:15px;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:850;font-size:16px;box-shadow:0 8px 15px #0b6bcb33;transition:transform .2s,filter .2s}.cta:hover{filter:brightness(1.08);transform:translateY(-1px)}.cta:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}.cta svg{width:20px;height:20px}
+.micro{display:flex;justify-content:center;gap:6px;align-items:center;color:#77889d;font-size:12px;text-align:center;margin-top:13px}.dot{width:5px;height:5px;background:#98aabd;border-radius:100%}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px}.chip{padding:8px 12px;border-radius:99px;background:#edf7f8;color:#11636a;font-size:12px;font-weight:800}.timer{display:flex;align-items:center;gap:7px;font-size:13px;color:#607287;font-weight:750}.timer svg{height:18px;width:18px}.progress{width:100%;height:9px;border-radius:99px;background:#e9eef5;overflow:hidden;margin:0 0 22px}.progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#1ea9bf,#2180db);transition:width .25s}
+.q-label{display:block;color:#75849a;font-size:12px;font-weight:750;letter-spacing:.07em;text-transform:uppercase}.question{font-size:clamp(22px,3.7vw,29px);line-height:1.25;letter-spacing:-.032em;font-weight:850;margin:13px 0 24px;color:#112944}.answers{display:grid;gap:11px}.answer{display:flex;align-items:center;text-align:left;gap:13px;width:100%;padding:14px 15px;min-height:63px;border-radius:15px;background:#fff;border:2px solid #e5ebf2;color:#18304b;font-weight:650;font-size:15px;line-height:1.35;transition:border .12s,background .12s}.answer:hover:not(:disabled){border-color:#77aec4;background:#f8fcfd}.answer:disabled{cursor:default}.letter{flex:0 0 35px;height:35px;border-radius:10px;background:#eef2f8;color:#576d84;display:grid;place-items:center;font-weight:850;font-size:13px}.answer.selected.correct{border-color:#24a17d;background:#effaf5}.answer.selected.incorrect{border-color:#e87878;background:#fff2f2}.answer.reveal-correct{border-color:#24a17d;background:#f0fbf5}.answer.selected.correct .letter,.answer.reveal-correct .letter{background:#0e9974;color:#fff}.answer.selected.incorrect .letter{background:#cb4f57;color:#fff}
+.feedback{margin:18px 0;padding:16px 17px;border-radius:14px;border:1px solid #daebe6;background:#f2faf6;color:#285b4e;line-height:1.5;font-size:14px}.feedback.bad{background:#fff8f5;border-color:#f4d4cb;color:#7a4a40}.feedback strong{display:block;font-size:14px;margin-bottom:5px}.feedback p{margin:0;color:inherit}.quiz-nav{display:flex;gap:10px;align-items:center;margin-top:22px}.quiz-nav .cta{flex:1}.quiet-btn{border:none;background:none;color:#75829a;text-decoration:underline;font-size:12px;padding:12px 4px}
+.result-hero{text-align:center;padding:6px 0 12px}.medallion{width:95px;height:95px;border-radius:25px;background:linear-gradient(145deg,#fff2cb,#ffda8e);display:grid;place-items:center;margin:0 auto 17px;box-shadow:0 9px 20px #af761b24;font-size:47px}.result-title{font-size:28px;letter-spacing:-.035em;font-weight:900;margin:0 0 7px}.result-desc{font-size:14px;color:#61738a;line-height:1.5}.big-score{font-size:clamp(58px,12vw,78px);font-weight:950;letter-spacing:-.065em;line-height:1;margin:17px auto 6px;color:#0c3159}.outof{font-size:17px;font-weight:700;color:#8ba0b4}.result-meta{display:flex;justify-content:center;gap:12px;margin:20px auto 22px;flex-wrap:wrap}.result-meta span{padding:10px 12px;background:#f0f6fb;border-radius:12px;color:#43617a;font-size:13px;font-weight:700}
+.reward{background:#e9f8fa;border:1px solid #c5e8eb;border-radius:16px;padding:16px;margin:14px 0 23px;text-align:center;color:#145a6c;font-weight:800;font-size:14px}.reward small{font-weight:500;display:block;margin-top:5px;color:#467581}
+.save-area{border-top:1px dashed #d8e2ec;padding-top:21px;margin-top:18px}.save-area h3{font-size:17px;margin:0 0 6px}.save-area p{margin:0 0 14px}.name-input{height:51px;border-radius:13px;border:2px solid #dce5ee;background:#fff;padding:0 14px;width:100%;outline:0;font-size:15px}.name-input:focus{border-color:#2788b4}.save-row{display:flex;gap:10px;margin-top:11px}.save-row .cta{min-height:48px;font-size:14px}.save-status{font-size:12px;line-height:1.5;color:#547584;min-height:20px;margin-top:10px}
+.review{margin-top:25px;border-top:1px solid #e4eaf2;padding-top:18px}.review summary{font-weight:850;cursor:pointer;padding:7px 0}.review-item{padding:14px 0;border-bottom:1px solid #eef2f6}.review-item .stamp{font-size:12px;font-weight:800}.review-item .stamp.good{color:var(--good)}.review-item .stamp.bad{color:var(--bad)}.review-item strong{display:block;margin:7px 0;font-size:14px;line-height:1.45}.review-item p{margin:6px 0;font-size:13px;line-height:1.45}.review-item .key{color:#246455}
+.bottom-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.outline-btn{padding:13px;border:2px solid #d5e1ea;border-radius:13px;background:#fff;color:#355b80;font-weight:750;font-size:14px}.footer{text-align:center;color:#8e9bb0;font-size:12px;padding:20px 0 0;line-height:1.6}
+[hidden]{display:none!important}
+@media(max-width:580px){.wrap{padding-left:15px;padding-right:15px}.topbar{padding:18px 0 14px}.hero-inner{grid-template-columns:1fr;padding:25px 23px 6px}.hero-art{height:165px;max-width:235px;justify-self:end;margin-top:-16px;margin-bottom:-17px;opacity:.85}h1{font-size:40px}.panel{padding:22px 20px;border-radius:21px;margin-top:15px}.stats strong{font-size:19px}.stats>div{padding:11px 5px}.stats span{font-size:10px}.question{font-size:23px}.bottom-actions{grid-template-columns:1fr}.save-row{display:block}.save-row .cta{margin-top:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff}.topbar,.hero,.footer,.save-area,.bottom-actions{display:none}.panel{box-shadow:none;border:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar"><div class="brand"><div class="brand-logo" aria-hidden="true">Φ</div> PHYSICS CHALLENGE ZONE</div><span class="smallmark">SP015 · CHAPTER 2</span></header>
+  <section class="hero" aria-label="Physics challenge introduction">
+   <div class="hero-inner"><div><span class="eyebrow">✦ Step in. Think fast. Win big.</span><h1>Ready, set,<br> <span style="color:var(--sky)">physics!</span></h1><p>Five surprising questions. Three motion topics. One chance to prove you're a physics legend.</p></div>
+   <svg class="hero-art" viewBox="0 0 300 250" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#6ce6ed"/><stop offset="1" stop-color="#f9c66a"/></linearGradient></defs>
+    <g stroke="#8eb1c344" stroke-width="1"><path d="M32 220H269M32 190H269M32 160H269M32 130H269M32 100H269M32 70H269M32 40H269M65 16V228M100 16V228M135 16V228M170 16V228M205 16V228M240 16V228"/></g>
+    <path d="M31 220Q121 -27 269 220" stroke="url(#g)" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="8 9"/>
+    <circle cx="118" cy="86" r="13" fill="#ffcd70"/><circle cx="114" cy="81" r="4" fill="#fff3b1"/>
+    <path d="M32 220L32 35M32 220H280" stroke="#93bfce" stroke-width="2" fill="none"/><path d="M32 35l-6 10h12zM280 220l-10 -6v12z" fill="#93bfce"/>
+    <path d="M164 178l49 -39m-10 1l10 -1l-2 10" stroke="#72e8db" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <g font-family="sans-serif" font-size="12" font-weight="700" fill="#bfe6ee"><text x="39" y="31">Y</text><text x="280" y="240">X</text></g>
+   </svg></div>
+   <div class="stats"><div><strong>5</strong><span>random questions</span></div><div><strong>3</strong><span>motion topics</span></div><div><strong>~2 min</strong><span>your own pace</span></div></div>
+  </section>
+  <main>
+   <section class="panel" id="intro">
+    <div class="section-label">Your mission</div><h2>Can you master motion?</h2>
+    <p>Test yourself with questions from the SP015 Chapter 2 syllabus. Answer on your phone and show your final score to the booth crew.</p>
+    <div class="tags"><span class="tag">🏹 Projectile Motion</span><span class="tag">📈 Motion Graphs</span><span class="tag">🧭 Resolving Vectors</span></div>
+    <button class="cta" id="startButton">START CHALLENGE <span aria-hidden="true">→</span></button>
+    <div class="micro"><span>No login</span><span class="dot"></span><span>No app</span><span class="dot"></span><span>Play anytime</span></div>
+   </section>
+   <section class="panel" id="quiz" hidden aria-live="polite">
+    <div class="quiz-top"><span class="chip" id="topicChip">Projectile Motion</span><span class="timer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 8v6l4 2M9 2h6"/></svg><span id="clock">00:00</span></span></div>
+    <div class="progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="q-label" id="stepText">QUESTION 1 OF 5</span><h2 class="question" id="questionText"></h2>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback" hidden><strong id="feedbackTitle"></strong><p id="feedbackText"></p></div>
+    <div class="quiz-nav"><button class="cta" id="nextButton" disabled>CHOOSE AN ANSWER</button><button class="quiet-btn" id="quitButton">Exit</button></div>
+   </section>
+   <section class="panel" id="result" hidden aria-live="polite">
+    <div class="result-hero"><div class="medallion" id="medallion">🏆</div><div class="section-label">CHALLENGE COMPLETED</div><h2 class="result-title" id="rankTitle">Motion Master</h2><p class="result-desc" id="rankSubtitle">Nice work!</p><div class="big-score"><span id="score">5</span><span class="outof"> / 5</span></div><div class="result-meta"><span id="timeResult">⏱ 02:03</span><span id="topicResult">⚡ 3 topics</span></div></div>
+    <div class="reward" id="reward">Show your score to the booth crew.<small>Prize availability is decided by the booth organizer.</small></div>
+    <div class="save-area"><h3>🎯 Add your score to our event results</h3><p>Enter a nickname (not your full name) and submit. No Google account needed.</p><label for="nickname" class="screen-reader">Nickname</label><input id="nickname" class="name-input" maxlength="32" placeholder="Your nickname (e.g. SpeedyNewton)" autocomplete="off"/><div class="save-row"><button class="cta" id="saveButton">SAVE MY SCORE <span aria-hidden="true">→</span></button></div><div class="save-status" id="saveStatus" role="status">Scores can be collected after the organizer enables Netlify Forms.</div></div>
+    <details class="review"><summary>Review the answers & explanations</summary><div id="reviewItems"></div></details>
+    <div class="bottom-actions"><button class="outline-btn" id="retryButton">↻ Play another round</button><button class="outline-btn" id="copyButton">⇧ Copy my result</button></div>
+   </section>
+  </main>
+  <footer class="footer">SP015 Chapter 2 · Projectile Motion · Graphs · Resolving Vectors<br>Created for a walk-in physics booth · Questions from the original 15-item bank</footer>
+</div>
+<!-- Netlify Forms detects this static form at deploy time. It must remain in the HTML. -->
+<form name="sp015-quiz-results" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden aria-hidden="true">
+ <input type="hidden" name="form-name" value="sp015-quiz-results">
+ <input type="text" name="bot-field">
+ <input type="text" name="nickname">
+ <input type="text" name="score">
+ <input type="text" name="total">
+ <input type="text" name="elapsed_seconds">
+ <input type="text" name="completed_at">
+ <input type="text" name="topic_scores">
+ <input type="text" name="attempt_id">
+</form>
+<script>
+'use strict';
+// Public GitHub Pages hosting does not support Netlify form submissions.
+if(location.hostname.toLowerCase().endsWith('.github.io')){
+  document.querySelector('.save-area').style.display='none';
+}
+const BANK = [
+  {
+    "id": 1,
+    "topic": "Projectile Motion",
+    "question": "Ignoring air resistance, what is the path of a ball projected at an angle above the horizontal?",
+    "options": [
+      "A straight line",
+      "A parabola",
+      "A circle",
+      "An ellipse"
+    ],
+    "correct": 1,
+    "explanation": "The horizontal motion is uniform while the vertical motion has constant downward acceleration, producing a parabolic path."
+  },
+  {
+    "id": 2,
+    "topic": "Projectile Motion",
+    "question": "At the highest point of projectile motion, what is the vertical component of velocity?",
+    "options": [
+      "0 m/s",
+      "9.8 m/s upward",
+      "9.8 m/s downward",
+      "Equal to the horizontal velocity"
+    ],
+    "correct": 0,
+    "explanation": "At maximum height, the instantaneous vertical velocity is zero, although gravity still acts downward."
+  },
+  {
+    "id": 3,
+    "topic": "Projectile Motion",
+    "question": "What is the horizontal acceleration of an ideal projectile (air resistance neglected)?",
+    "options": [
+      "0 m/s²",
+      "4.9 m/s²",
+      "9.8 m/s²",
+      "−9.8 m/s²"
+    ],
+    "correct": 0,
+    "explanation": "Only gravity acts, in the vertical direction, so horizontal acceleration is zero."
+  },
+  {
+    "id": 4,
+    "topic": "Projectile Motion",
+    "question": "A ball is projected upward with an initial vertical velocity of 20 m/s. How long does it take to reach maximum height? Use g = 10 m/s².",
+    "options": [
+      "1 s",
+      "2 s",
+      "3 s",
+      "4 s"
+    ],
+    "correct": 1,
+    "explanation": "At maximum height vy = 0. From 0 = 20 − 10t, t = 2 s."
+  },
+  {
+    "id": 5,
+    "topic": "Projectile Motion",
+    "question": "A ball travels with constant horizontal velocity 8 m/s and remains in the air for 3 s. What is its horizontal range?",
+    "options": [
+      "11 m",
+      "16 m",
+      "24 m",
+      "32 m"
+    ],
+    "correct": 2,
+    "explanation": "Horizontal range = horizontal velocity × time of flight = 8 × 3 = 24 m."
+  },
+  {
+    "id": 6,
+    "topic": "Graphs",
+    "question": "What physical quantity is represented by the gradient of a displacement–time graph?",
+    "options": [
+      "Speed only",
+      "Acceleration",
+      "Velocity",
+      "Distance"
+    ],
+    "correct": 2,
+    "explanation": "The gradient of a displacement–time graph gives velocity."
+  },
+  {
+    "id": 7,
+    "topic": "Graphs",
+    "question": "What does the gradient of a velocity–time graph represent?",
+    "options": [
+      "Acceleration",
+      "Displacement",
+      "Distance",
+      "Position"
+    ],
+    "correct": 0,
+    "explanation": "Acceleration is the change in velocity per unit time and equals the gradient of a velocity–time graph."
+  },
+  {
+    "id": 8,
+    "topic": "Graphs",
+    "question": "For a velocity–time graph that stays above the time axis, what does the area under the graph represent?",
+    "options": [
+      "Acceleration",
+      "Displacement",
+      "Average velocity",
+      "Jerk"
+    ],
+    "correct": 1,
+    "explanation": "The area under a velocity–time graph is displacement; if velocity stays positive it also equals distance traveled."
+  },
+  {
+    "id": 9,
+    "topic": "Graphs",
+    "question": "A car's velocity increases uniformly from 2 m/s to 10 m/s in 4 s. What is its acceleration?",
+    "options": [
+      "1 m/s²",
+      "2 m/s²",
+      "3 m/s²",
+      "4 m/s²"
+    ],
+    "correct": 1,
+    "explanation": "Acceleration = (final velocity − initial velocity) / time = (10 − 2) / 4 = 2 m/s²."
+  },
+  {
+    "id": 10,
+    "topic": "Graphs",
+    "question": "A velocity–time graph shows a constant velocity of 5 m/s for 4 s. What is the displacement?",
+    "options": [
+      "1.25 m",
+      "9 m",
+      "20 m",
+      "25 m"
+    ],
+    "correct": 2,
+    "explanation": "Displacement equals the rectangular area under the graph: 5 × 4 = 20 m."
+  },
+  {
+    "id": 11,
+    "topic": "Resolving Vectors",
+    "question": "A force of 10 N acts at 60° above the positive horizontal axis. What is its horizontal component?",
+    "options": [
+      "5 N",
+      "8.66 N",
+      "10 N",
+      "20 N"
+    ],
+    "correct": 0,
+    "explanation": "Horizontal component = F cos θ = 10 cos 60° = 5 N."
+  },
+  {
+    "id": 12,
+    "topic": "Resolving Vectors",
+    "question": "A velocity of 20 m/s makes an angle of 30° above the horizontal. What is its vertical component?",
+    "options": [
+      "5 m/s",
+      "10 m/s",
+      "17.3 m/s",
+      "20 m/s"
+    ],
+    "correct": 1,
+    "explanation": "Vertical component = v sin θ = 20 sin 30° = 10 m/s."
+  },
+  {
+    "id": 13,
+    "topic": "Resolving Vectors",
+    "question": "Two perpendicular force components are 5 N to the right and 12 N upward. What is the resultant magnitude?",
+    "options": [
+      "7 N",
+      "12 N",
+      "13 N",
+      "17 N"
+    ],
+    "correct": 2,
+    "explanation": "Using Pythagoras: F = √(5² + 12²) = 13 N."
+  },
+  {
+    "id": 14,
+    "topic": "Resolving Vectors",
+    "question": "If a force F makes an angle θ above the horizontal, which expression gives its horizontal component?",
+    "options": [
+      "F sin θ",
+      "F tan θ",
+      "F / cos θ",
+      "F cos θ"
+    ],
+    "correct": 3,
+    "explanation": "When θ is measured from the horizontal, the adjacent component is F cos θ."
+  },
+  {
+    "id": 15,
+    "topic": "Resolving Vectors",
+    "question": "A force of 10 N acts at 30° below the positive horizontal axis. Taking upward as positive, what is its vertical component?",
+    "options": [
+      "−5 N",
+      "+5 N",
+      "−8.66 N",
+      "+8.66 N"
+    ],
+    "correct": 0,
+    "explanation": "The downward component is negative: Fy = −10 sin 30° = −5 N."
+  }
+];
+const TOPICS = ['Projectile Motion','Graphs','Resolving Vectors'];
+const $ = id => document.getElementById(id);
+const screens = ['intro','quiz','result'];
+let round=[],pos=0,picked=[],answers=[],startTime=0,ticker=null,elapsedSec=0,score=0,attemptId='',scoreSubmitted=false;
+function shuffle(input){const a=[...input];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function show(section){screens.forEach(id=>$(id).hidden=id!==section);window.scrollTo({top:0,behavior:'smooth'});}
+function clockfmt(sec){const m=Math.floor(sec/60),s=sec%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+function stopTimer(){if(ticker){clearInterval(ticker);ticker=null;}}
+function buildRound(){
+  // Five questions with all three topics represented: 2 + 2 + 1.
+  const singleton=TOPICS[Math.floor(Math.random()*TOPICS.length)];
+  let set=[];
+  TOPICS.forEach(topic=>{
+    const pool=shuffle(BANK.filter(q=>q.topic===topic));
+    const count=topic===singleton?1:2;
+    set.push(...pool.slice(0,count).map(q=>({
+      ...q,
+      choices:shuffle(q.options.map((text,i)=>({text,isCorrect:i===q.correct})))
+    })));
+  });
+  return shuffle(set);
+}
+function begin(){
+  round=buildRound();pos=0;answers=[];picked=[];score=0;scoreSubmitted=false;
+  attemptId='P-'+Math.random().toString(36).slice(2,8).toUpperCase();
+  $('nickname').value='';$('saveButton').disabled=false;$('saveButton').textContent='SAVE MY SCORE →';
+  $('saveStatus').textContent='Scores can be collected after the organizer enables Netlify Forms.';
+  startTime=performance.now();stopTimer();ticker=setInterval(()=>{$('clock').textContent=clockfmt(Math.floor((performance.now()-startTime)/1000));},1000);
+  show('quiz');drawQuestion();
+}
+function drawQuestion(){
+  const q=round[pos];picked[pos]=null;
+  $('topicChip').textContent=q.topic;
+  $('progress').setAttribute('aria-valuenow',String(pos));$('progressFill').style.width=(pos/5*100)+'%';
+  $('stepText').textContent=`QUESTION ${pos+1} OF 5`;
+  $('questionText').textContent=q.question;
+  $('clock').textContent=clockfmt(Math.floor((performance.now()-startTime)/1000));
+  $('feedback').hidden=true;
+  const parent=$('answers');parent.replaceChildren();
+  q.choices.forEach((choice,i)=>{
+    const btn=document.createElement('button');btn.type='button';btn.className='answer';btn.setAttribute('aria-label',`Option ${String.fromCharCode(65+i)}: ${choice.text}`);
+    const letter=document.createElement('span');letter.className='letter';letter.textContent=String.fromCharCode(65+i);
+    const text=document.createElement('span');text.textContent=choice.text;
+    btn.append(letter,text);btn.addEventListener('click',()=>choose(i));parent.append(btn);
+  });
+  $('nextButton').disabled=true;$('nextButton').textContent='CHOOSE AN ANSWER';
+}
+function choose(index){
+  if(picked[pos]!==null)return;
+  picked[pos]=index;const q=round[pos];
+  const correct=q.choices[index].isCorrect;
+  answers[pos]={id:q.id,topic:q.topic,question:q.question,chosen:q.choices[index].text,correctText:q.choices.find(o=>o.isCorrect).text,isCorrect:correct,explanation:q.explanation};
+  if(correct)score++;
+  Array.from($('answers').children).forEach((node,i)=>{
+    node.disabled=true;
+    if(i===index)node.classList.add('selected',correct?'correct':'incorrect');
+    else if(q.choices[i].isCorrect)node.classList.add('reveal-correct');
+  });
+  $('feedbackTitle').textContent=correct?'✓ You got it!':'↗ Good try — here is why';
+  $('feedbackText').textContent=q.explanation;
+  $('feedback').classList.toggle('bad',!correct);$('feedback').hidden=false;
+  $('nextButton').disabled=false;$('nextButton').textContent=pos===round.length-1?'SEE MY RESULT →':'NEXT QUESTION →';
+}
+function next(){if(picked[pos]===null)return;if(pos===round.length-1){finish();return;}pos++;drawQuestion();}
+function finish(){
+  stopTimer();elapsedSec=Math.max(1,Math.floor((performance.now()-startTime)/1000));
+  $('score').textContent=String(score);
+  $('timeResult').textContent='⏱ '+clockfmt(elapsedSec);
+  $('topicResult').textContent='⚡ 3 topics covered';
+  let title,desc,icon,reward;
+  if(score===5){title='PHYSICS LEGEND!';desc='Perfect score. You mastered the challenge!';icon='🏆';reward='🌟 PERFECT SCORE — Show the booth crew!';}
+  else if(score>=3){title='MOTION MASTER!';desc='Nice work! You know your motion concepts.';icon='⚡';reward='🎉 GREAT JOB — Show the booth crew!';}
+  else{title='SCIENCE EXPLORER!';desc='Every discovery starts with a question. Try again!';icon='🚀';reward='🧪 KEEP EXPLORING — Try another round!';}
+  $('rankTitle').textContent=title;$('rankSubtitle').textContent=desc;$('medallion').textContent=icon;
+  $('reward').firstChild.textContent=reward;
+  const panel=$('reviewItems');panel.replaceChildren();
+  answers.forEach((a,i)=>{
+    const div=document.createElement('div');div.className='review-item';
+    const stamp=document.createElement('span');stamp.className='stamp '+(a.isCorrect?'good':'bad');stamp.textContent=`${a.isCorrect?'✓ Correct':'× Incorrect'} · Question ${i+1} · ${a.topic}`;
+    const q=document.createElement('strong');q.textContent=a.question;
+    const chosen=document.createElement('p');chosen.textContent='Your answer: '+a.chosen;
+    const key=document.createElement('p');key.className='key';key.textContent='Correct answer: '+a.correctText;
+    const explain=document.createElement('p');explain.textContent=a.explanation;
+    div.append(stamp,q,chosen,key,explain);panel.append(div);
+  });
+  $('progressFill').style.width='100%';show('result');
+}
+async function submitScore(){
+  if(scoreSubmitted)return;
+  const nick=$('nickname').value.trim().replace(/\s+/g,' ').slice(0,32);
+  if(!nick){$('saveStatus').textContent='Please enter a nickname before saving.';$('nickname').focus();return;}
+  if(location.protocol!=='https:'&&location.protocol!=='http:'){
+    $('saveStatus').textContent='Preview mode: your result is visible, but online score collection starts after publishing the site.';return;
+  }
+  const byTopic=TOPICS.map(t=>{let a=answers.filter(x=>x.topic===t);return `${t}: ${a.filter(x=>x.isCorrect).length}/${a.length}`;}).join(' | ');
+  const data=new URLSearchParams({
+   'form-name':'sp015-quiz-results', 'bot-field':'',nickname:nick,
+   score:String(score),total:'5',elapsed_seconds:String(elapsedSec),
+   completed_at:new Date().toISOString(),topic_scores:byTopic,attempt_id:attemptId
+  });
+  $('saveButton').disabled=true;$('saveButton').textContent='SENDING...';
+  $('saveStatus').textContent='Sending your result...';
+  try{
+    const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()});
+    if(!res.ok)throw new Error('Server rejected the submission');
+    scoreSubmitted=true;$('saveButton').textContent='RESULT SENT ✓';
+    $('saveStatus').textContent='Result sent! Booth staff can check Netlify → Forms to verify it was recorded.';
+  }catch(err){
+    $('saveButton').disabled=false;$('saveButton').textContent='TRY SAVING AGAIN →';
+    $('saveStatus').textContent='Could not send your result. Show your score to the booth crew instead.';
+  }
+}
+async function copyResult(){
+ const text=`SP015 Physics Challenge • ${score}/5 • ${clockfmt(elapsedSec)} • ${$('rankTitle').textContent}`;
+ try{await navigator.clipboard.writeText(text);$('copyButton').textContent='✓ COPIED!';setTimeout(()=>$('copyButton').textContent='⇧ Copy my result',1500);}
+ catch(e){window.prompt('Copy your result:',text);}
+}
+$('startButton').addEventListener('click',begin);
+$('nextButton').addEventListener('click',next);
+$('retryButton').addEventListener('click',begin);
+$('saveButton').addEventListener('click',submitScore);
+$('copyButton').addEventListener('click',copyResult);
+$('quitButton').addEventListener('click',()=>{stopTimer();show('intro');});
+$('nickname').addEventListener('keydown',e=>{if(e.key==='Enter')submitScore();});
+</script>
+</body>
+</html>
