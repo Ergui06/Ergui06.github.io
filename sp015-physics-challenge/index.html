@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#091a31">
-<meta name="description" content="SP015 Chapter 2 Physics Challenge: five quick questions on projectile motion, graphs and resolving vectors.">
+<meta name="description" content="SP015 Chapter 2 Physics Challenge: ten random questions on projectile motion, graphs and resolving vectors.">
 <title>Physics Challenge Zone · SP015</title>
 <style>
 :root{--night:#091a31;--mid:#122841;--sky:#6ce6ed;--blue:#1765d8;--mint:#b7f4dd;--cream:#fff4de;--ink:#112339;--muted:#52637a;--line:#e0e7ee;--gold:#ffc869;--good:#087d5c;--bad:#c04b53}
@@ -39,7 +39,7 @@ h1{font-size:clamp(36px,6vw,57px);line-height:1.04;letter-spacing:-.055em;margin
 <div class="wrap">
   <header class="topbar"><div class="brand"><div class="brand-logo" aria-hidden="true">Φ</div> PHYSICS CHALLENGE ZONE</div><span class="smallmark">SP015 · CHAPTER 2</span></header>
   <section class="hero" aria-label="Physics challenge introduction">
-   <div class="hero-inner"><div><span class="eyebrow">✦ Step in. Think fast. Win big.</span><h1>Ready, set,<br> <span style="color:var(--sky)">physics!</span></h1><p>Five surprising questions. Three motion topics. One chance to prove you're a physics legend.</p></div>
+   <div class="hero-inner"><div><span class="eyebrow">✦ Step in. Think fast. Win big.</span><h1>Ready, set,<br> <span style="color:var(--sky)">physics!</span></h1><p>Ten random questions. Three motion topics. One chance to prove you're a physics legend.</p></div>
    <svg class="hero-art" viewBox="0 0 300 250" aria-hidden="true"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#6ce6ed"/><stop offset="1" stop-color="#f9c66a"/></linearGradient></defs>
     <g stroke="#8eb1c344" stroke-width="1"><path d="M32 220H269M32 190H269M32 160H269M32 130H269M32 100H269M32 70H269M32 40H269M65 16V228M100 16V228M135 16V228M170 16V228M205 16V228M240 16V228"/></g>
     <path d="M31 220Q121 -27 269 220" stroke="url(#g)" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="8 9"/>
@@ -60,14 +60,14 @@ h1{font-size:clamp(36px,6vw,57px);line-height:1.04;letter-spacing:-.055em;margin
    </section>
    <section class="panel" id="quiz" hidden aria-live="polite">
     <div class="quiz-top"><span class="chip" id="topicChip">Projectile Motion</span><span class="timer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 8v6l4 2M9 2h6"/></svg><span id="clock">00:00</span></span></div>
-    <div class="progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress"><div class="progress-fill" id="progressFill"></div></div>
-    <span class="q-label" id="stepText">QUESTION 1 OF 5</span><h2 class="question" id="questionText"></h2>
+    <div class="progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="progress"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="q-label" id="stepText">QUESTION 1 OF 10</span><h2 class="question" id="questionText"></h2>
     <div class="answers" id="answers"></div>
     <div class="feedback" id="feedback" hidden><strong id="feedbackTitle"></strong><p id="feedbackText"></p></div>
     <div class="quiz-nav"><button class="cta" id="nextButton" disabled>CHOOSE AN ANSWER</button><button class="quiet-btn" id="quitButton">Exit</button></div>
    </section>
    <section class="panel" id="result" hidden aria-live="polite">
-    <div class="result-hero"><div class="medallion" id="medallion">🏆</div><div class="section-label">CHALLENGE COMPLETED</div><h2 class="result-title" id="rankTitle">Motion Master</h2><p class="result-desc" id="rankSubtitle">Nice work!</p><div class="big-score"><span id="score">5</span><span class="outof"> / 5</span></div><div class="result-meta"><span id="timeResult">⏱ 02:03</span><span id="topicResult">⚡ 3 topics</span></div></div>
+    <div class="result-hero"><div class="medallion" id="medallion">🏆</div><div class="section-label">CHALLENGE COMPLETED</div><h2 class="result-title" id="rankTitle">Motion Master</h2><p class="result-desc" id="rankSubtitle">Nice work!</p><div class="big-score"><span id="score">0</span><span class="outof"> / 10</span></div><div class="result-meta"><span id="timeResult">⏱ 02:03</span><span id="topicResult">⚡ 3 topics</span></div></div>
     <div class="reward" id="reward">Show your score to the booth crew.<small>Prize availability is decided by the booth organizer.</small></div>
     <div class="save-area"><h3>🎯 Add your score to our event results</h3><p>Enter a nickname (not your full name) and submit. No Google account needed.</p><label for="nickname" class="screen-reader">Nickname</label><input id="nickname" class="name-input" maxlength="32" placeholder="Your nickname (e.g. SpeedyNewton)" autocomplete="off"/><div class="save-row"><button class="cta" id="saveButton">SAVE MY SCORE <span aria-hidden="true">→</span></button></div><div class="save-status" id="saveStatus" role="status">Scores can be collected after the organizer enables Netlify Forms.</div></div>
     <details class="review"><summary>Review the answers & explanations</summary><div id="reviewItems"></div></details>
@@ -300,12 +300,12 @@ function show(section){screens.forEach(id=>$(id).hidden=id!==section);window.scr
 function clockfmt(sec){const m=Math.floor(sec/60),s=sec%60;return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
 function stopTimer(){if(ticker){clearInterval(ticker);ticker=null;}}
 function buildRound(){
-  // Five questions with all three topics represented: 2 + 2 + 1.
-  const singleton=TOPICS[Math.floor(Math.random()*TOPICS.length)];
+  // Ten unique random questions: three per topic, plus one bonus random topic.
+  const bonusTopic=TOPICS[Math.floor(Math.random()*TOPICS.length)];
   let set=[];
   TOPICS.forEach(topic=>{
     const pool=shuffle(BANK.filter(q=>q.topic===topic));
-    const count=topic===singleton?1:2;
+    const count=topic===bonusTopic?4:3;
     set.push(...pool.slice(0,count).map(q=>({
       ...q,
       choices:shuffle(q.options.map((text,i)=>({text,isCorrect:i===q.correct})))
@@ -324,8 +324,8 @@ function begin(){
 function drawQuestion(){
   const q=round[pos];picked[pos]=null;
   $('topicChip').textContent=q.topic;
-  $('progress').setAttribute('aria-valuenow',String(pos));$('progressFill').style.width=(pos/5*100)+'%';
-  $('stepText').textContent=`QUESTION ${pos+1} OF 5`;
+  $('progress').setAttribute('aria-valuenow',String(pos));$('progressFill').style.width=(pos/round.length*100)+'%';
+  $('stepText').textContent=`QUESTION ${pos+1} OF ${round.length}`;
   $('questionText').textContent=q.question;
   $('clock').textContent=clockfmt(Math.floor((performance.now()-startTime)/1000));
   $('feedback').hidden=true;
@@ -361,8 +361,8 @@ function finish(){
   $('timeResult').textContent='⏱ '+clockfmt(elapsedSec);
   $('topicResult').textContent='⚡ 3 topics covered';
   let title,desc,icon,reward;
-  if(score===5){title='PHYSICS LEGEND!';desc='Perfect score. You mastered the challenge!';icon='🏆';reward='🌟 PERFECT SCORE — Show the booth crew!';}
-  else if(score>=3){title='MOTION MASTER!';desc='Nice work! You know your motion concepts.';icon='⚡';reward='🎉 GREAT JOB — Show the booth crew!';}
+  if(score===round.length){title='PHYSICS LEGEND!';desc='Perfect score. You mastered the challenge!';icon='🏆';reward='🌟 PERFECT SCORE — Show the booth crew!';}
+  else if(score>=Math.ceil(round.length*0.6)){title='MOTION MASTER!';desc='Nice work! You know your motion concepts.';icon='⚡';reward='🎉 GREAT JOB — Show the booth crew!';}
   else{title='SCIENCE EXPLORER!';desc='Every discovery starts with a question. Try again!';icon='🚀';reward='🧪 KEEP EXPLORING — Try another round!';}
   $('rankTitle').textContent=title;$('rankSubtitle').textContent=desc;$('medallion').textContent=icon;
   $('reward').firstChild.textContent=reward;
@@ -388,7 +388,7 @@ async function submitScore(){
   const byTopic=TOPICS.map(t=>{let a=answers.filter(x=>x.topic===t);return `${t}: ${a.filter(x=>x.isCorrect).length}/${a.length}`;}).join(' | ');
   const data=new URLSearchParams({
    'form-name':'sp015-quiz-results', 'bot-field':'',nickname:nick,
-   score:String(score),total:'5',elapsed_seconds:String(elapsedSec),
+   score:String(score),total:String(round.length),elapsed_seconds:String(elapsedSec),
    completed_at:new Date().toISOString(),topic_scores:byTopic,attempt_id:attemptId
   });
   $('saveButton').disabled=true;$('saveButton').textContent='SENDING...';
@@ -404,7 +404,7 @@ async function submitScore(){
   }
 }
 async function copyResult(){
- const text=`SP015 Physics Challenge • ${score}/5 • ${clockfmt(elapsedSec)} • ${$('rankTitle').textContent}`;
+ const text=`SP015 Physics Challenge • ${score}/${round.length} • ${clockfmt(elapsedSec)} • ${$('rankTitle').textContent}`;
  try{await navigator.clipboard.writeText(text);$('copyButton').textContent='✓ COPIED!';setTimeout(()=>$('copyButton').textContent='⇧ Copy my result',1500);}
  catch(e){window.prompt('Copy your result:',text);}
 }
